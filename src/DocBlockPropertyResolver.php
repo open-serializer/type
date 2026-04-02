@@ -4,6 +4,7 @@ namespace OpenSerializer\Type;
 
 use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 use phpDocumentor\Reflection\DocBlockFactory;
+use phpDocumentor\Reflection\DocBlockFactoryInterface;
 use phpDocumentor\Reflection\Type;
 use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -20,6 +21,7 @@ use phpDocumentor\Reflection\Types\This;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_filter;
 use function array_values;
 use function count;
@@ -27,7 +29,7 @@ use function iterator_to_array;
 
 final class DocBlockPropertyResolver implements PropertyTypeResolver
 {
-    private DocBlockFactory $docblockFactory;
+    private DocBlockFactoryInterface $docblockFactory;
     private ContextFactory $contextFactory;
 
     public function __construct()

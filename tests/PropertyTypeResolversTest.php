@@ -10,7 +10,7 @@ use ReflectionClass;
 
 final class PropertyTypeResolversTest extends TestCase
 {
-    function test_()
+    public function test_resolvers(): void
     {
         $typeResolver = new PropertyTypeResolvers(
             new TypedPropertyResolver(),
@@ -21,7 +21,7 @@ final class PropertyTypeResolversTest extends TestCase
         $methodInfo = $classInfo->getMethod('test');
         $typeInfo = $typeResolver->resolveMethodType($classInfo, $methodInfo);
 
-        self::assertEquals(true, $typeInfo->isArray());
-        self::assertEquals(true, $typeInfo->innerType()->isInteger());
+        self::assertTrue($typeInfo->isArray());
+        self::assertTrue($typeInfo->innerType()->isInteger());
     }
 }
